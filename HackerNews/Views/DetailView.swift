@@ -12,7 +12,7 @@ struct DetailView: View {
     let url: String?
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NewsWebView(urlString: url)
     }
 }
 
@@ -23,11 +23,16 @@ struct DetailView: View {
 //SwiftUI components from UIKit components(views/view controllers)
 //makeUIView, updateUIView - 2 mandatory methods
 struct NewsWebView: UIViewRepresentable {
-    func makeUIView(context: Context) -> some UIView {
+    let urlString: String?
+
+    func makeUIView(context: Context) -> WKWebView {
         return WKWebView()
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        if let url = URL(string: urlString!) {
+            let request = URLRequest(url: url)
+            uiView.load(request)
+        }
     }
 }
