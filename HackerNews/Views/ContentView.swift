@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var networkManager = NetworkManager()
+    @ObservedObject var networkManager = NetworkManager() //subscription to an observable obj
     
     var body: some View {
         NavigationView {
