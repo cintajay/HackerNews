@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(networkManager.news) { item in
-                NavigationLink(destination: DetailView(), label: {
+                NavigationLink(destination: DetailView(url: item.url), label: {
                     HStack {
                         Text(String(item.points!))
                         Text(item.title!)
