@@ -13,10 +13,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(networkManager.news) { item in
-                HStack {
-                    Text(String(item.points!))
-                    Text(item.title!)
-                }
+                NavigationLink(destination: DetailView(), label: {
+                    HStack {
+                        Text(String(item.points!))
+                        Text(item.title!)
+                    }
+                })
             }
             .navigationTitle("Hacker News")
         }
