@@ -12,14 +12,17 @@ struct Result: Decodable {
 }
 
 // MARK: - Hit
-struct Hit: Decodable {
+struct Hit: Decodable, Identifiable {
+    var id: String {
+        return objectID
+    }    
 //    var highlightResult: HighlightResult?
     var tags: [String]?
     var author: String?
     var children: [Int]?
     var createdAt: Date?
     var createdAtI, numComments: Int?
-    var objectID: String?
+    var objectID: String
     var points, storyID: Int?
     var title: String?
     var updatedAt: Date?
